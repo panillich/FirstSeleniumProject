@@ -67,7 +67,7 @@ public class DemoWebShopTest {
         WebElement aboutUsLink = driver.findElement(By.xpath("//a[contains(text(), 'About us')]"));
         System.out.println("10. Link found 'About us': " + aboutUsLink.isDisplayed());
 
-        Assert.assertTrue(searchBox.isDisplayed(), "The search field is not displayed.!");
+        Assert.assertTrue(searchBox.isDisplayed(), "The search field is not displayed!");
     }
 
     @AfterMethod
