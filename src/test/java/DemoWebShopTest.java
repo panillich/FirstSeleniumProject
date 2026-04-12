@@ -35,7 +35,7 @@ public class DemoWebShopTest {
 
     @Test
     public void findTenElements() {
-        // Переходим на сайт
+
         driver.get("https://demowebshop.tricentis.com/");
 
 
