@@ -24,11 +24,11 @@ public class UserHelper extends BaseHelper {
 
     public void fillRegistrationForm(User user) {
         click(By.id("gender-male"));
-        type(By.id("FirstName"), user.getFirstName());
-        type(By.id("LastName"), user.getLastName());
-        type(By.id("Email"), user.getEmail());
-        type(By.id("Password"), user.getPassword());
-        type(By.id("ConfirmPassword"), user.getPassword());
+        type(By.id("FirstName"), user.firstName());
+        type(By.id("LastName"), user.lastName());
+        type(By.id("Email"), user.email());
+        type(By.id("Password"), user.password());
+        type(By.id("ConfirmPassword"), user.password());
     }
 
     public void submitRegistration() {

@@ -35,5 +35,4 @@ public class ApplicationManager {
     public ItemHelper getItem() {
         return itemHelper;
     }
-
 }
