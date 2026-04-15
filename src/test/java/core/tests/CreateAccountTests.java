@@ -1,5 +1,6 @@
 package core.tests;
 
+import core.model.Gender;
 import core.model.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,7 +10,7 @@ public class CreateAccountTests extends TestBase {
     @Test
     public void testCreatePositiveAccount() {
         String uniqueEmail = "panillich" + System.currentTimeMillis() + "@gmail.com";
-        User user = new User("Vladimir", "Panchenko", uniqueEmail, "SecretPass123!");
+        User user = new User(Gender.MALE, "Vladimir", "Panchenko", uniqueEmail, "SecretPass123!");
 
         app.getUser().openRegistrationPage();
         app.getUser().fillRegistrationForm(user);

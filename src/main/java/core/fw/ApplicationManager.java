@@ -1,6 +1,5 @@
 package core.fw;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -8,31 +7,27 @@ import java.time.Duration;
 
 public class ApplicationManager {
 
-    private WebDriver driver;
-    private UserHelper userHelper;
-    private ItemHelper itemHelper;
+    private final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public void init() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.set(new ChromeDriver());
 
-        userHelper = new UserHelper(driver);
-        itemHelper = new ItemHelper(driver);
+        driver.get().manage().window().maximize();
+        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     public void stop() {
-        if (driver != null) {
-            driver.quit();
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.remove();
         }
     }
 
     public UserHelper getUser() {
-        return userHelper;
+        return new UserHelper(driver.get());
     }
 
     public ItemHelper getItem() {
-        return itemHelper;
+        return new ItemHelper(driver.get());
     }
 }

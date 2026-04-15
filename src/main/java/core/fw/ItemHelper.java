@@ -49,7 +49,7 @@ public class ItemHelper extends BaseHelper {
     public void clearCart() {
         click(By.cssSelector(".ico-cart"));
 
-        java.util.List<WebElement> removeCheckboxes = driver.findElements(By.name("removefromcart"));
+        List<WebElement> removeCheckboxes = driver.findElements(By.name("removefromcart"));
 
         if (!removeCheckboxes.isEmpty()) {
             for (WebElement checkbox : removeCheckboxes) {

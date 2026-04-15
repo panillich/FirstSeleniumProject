@@ -1,5 +1,6 @@
 package core.fw;
 
+import core.model.Gender;
 import core.model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +24,12 @@ public class UserHelper extends BaseHelper {
     }
 
     public void fillRegistrationForm(User user) {
-        click(By.id("gender-male"));
+        if (user.gender() == Gender.MALE) {
+            click(By.id("gender-male"));
+        } else {
+            click(By.id("gender-female"));
+        }
+
         type(By.id("FirstName"), user.firstName());
         type(By.id("LastName"), user.lastName());
         type(By.id("Email"), user.email());

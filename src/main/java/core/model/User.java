@@ -1,4 +1,4 @@
 package core.model;
 
-public record User(String firstName, String lastName, String email, String password) {
+public record User(Gender gender, String firstName, String lastName, String email, String password) {
 }
